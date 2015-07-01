@@ -1,0 +1,10 @@
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\Taken.exe.config
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\Taken.exe
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\Taken.pdb
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\obj\Release\Taken.g.resources
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\obj\Release\Taken.exe
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\obj\Release\Taken.pdb
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\xml\dungeonObjects\EnvironmentalObjectValues.xml
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\xml\mapGenerator\act1.xml
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\xml\mapGenerator\act2.xml
+C:\Users\Christopher\Documents\GitHub\Taken_Code\C#\Taken\bin\Release\xml\mapGenerator\act5.xml

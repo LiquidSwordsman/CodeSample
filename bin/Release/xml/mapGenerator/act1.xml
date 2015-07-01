@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mapGenValues>
+  <dungeonValues>
+    <minMapWidth>150</minMapWidth>
+    <maxMapWidth>150</maxMapWidth>
+    <minMapHeight>150</minMapHeight>
+    <maxMapHeight>150</maxMapHeight>
+    <minRoomSize>8</minRoomSize>
+    <maxRoomSize>20</maxRoomSize>
+    <minNumberOfRooms>20</minNumberOfRooms>
+    <maxNumberOfRooms>50</maxNumberOfRooms>
+    <minInitialMobs>4</minInitialMobs>  <!--optional-->
+    <maxInitialMobs>12</maxInitialMobs> <!--optional-->
+  </dungeonValues>
+  <roomStyles>
+    <style name="empty">
+      <minChance>0</minChance>
+      <maxChance>100</maxChance>
+      <tileTypes>
+        <tileType name="empty">
+          <minChance>1</minChance>
+          <maxChance>100</maxChance>
+          <intRepresentation>1</intRepresentation>
+        </tileType>
+      </tileTypes>
+      <decorations></decorations>
+    </style>
+  </roomStyles>
+</mapGenValues>

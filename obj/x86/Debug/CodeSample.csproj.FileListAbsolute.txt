@@ -1,0 +1,13 @@
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\ConsoleApplication.exe.config
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\obj\x86\Debug\CodeSample.csprojResolveAssemblyReference.cache
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\ConsoleApplication.exe
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\ConsoleApplication.pdb
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Newtonsoft.Json.Schema.dll
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Newtonsoft.Json.Schema.xml
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Data\Act1\Dungeon\dungeon_values.json
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Data\Act1\Dungeon\room_styles.json
+C:\Users\Christopher\Documents\GitHub\Taken\Taken\bin\Debug\Data\Act1\Dungeon\tiles.json

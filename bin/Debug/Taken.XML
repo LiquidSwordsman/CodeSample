@@ -1,0 +1,993 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Taken</name>
+    </assembly>
+    <members>
+        <member name="T:CodingConventions">
+            This file will lay out code conventions designed to help keep the code manageable.
+            Misc Notes:
+            1. Use standard Visual Studio tab indentation unless noted otherwise in this file.
+        </member>
+        <member name="M:CodingConventions.MethodTwo(System.Int32,System.Int32)">
+            <summary>
+            Adds two numbers.
+            </summary>
+            <param name="param1">This is an uneccesssiraly long line used just to state that the param1 
+                                 is the first number and illustrate handling long comments.</param>
+            <param name="param2">The second number.</param>
+            <returns>The sum.</returns>
+        </member>
+        <member name="F:CodingConventions.AnInteger">
+            <summary>
+            This is a public integer.</summary>
+        </member>
+        <member name="T:Taken.Debug">
+            <summary>
+            This class holds various functions to aid in the testing and debugging code.</summary>
+        </member>
+        <member name="M:Taken.Debug.Indent(System.Int32)">
+            <summary>
+            Used to indent ConsoleOutput. Exceptionally useful when outputing nested 
+            collections.</summary>
+            <param name="level">The number of tabs to indent by. Defaults to one.</param>
+            <returns>The string containing the Indent.</returns>
+        </member>
+        <member name="M:Taken.Debug.Output2DList(System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}})">
+            <summary>
+            Prints a 2D list in a human-readable grid format.</summary>
+            <param name="list">The list to be printed.</param>
+            <returns>A string containing the human readable grid.</returns>
+        </member>
+        <member name="M:Taken.Debug.PrintToDesktopFile(System.String,System.String)">
+            <summary>
+            Writes a given string to a text file on your desktop.</summary>
+            <param name="toPrint">The string to be written.</param>
+            <param name="docName">The desired name of your text file.</param>
+        </member>
+        <member name="T:Taken.Combat.Combat">
+            <summary>
+            The combat class is a repository for all non-ability combat related functions.</summary>
+        </member>
+        <member name="M:Taken.Combat.Combat.ProcessBuffsDebuffs(Taken.Entities.Entity,System.Int32)">
+            <summary>
+            Checks an entity for the presence of buffs or debuffs, and handles the results of 
+            them.</summary>
+            <param name="entity">The entity being checked for buffs or debuffs.</param>
+            <param name="damage">The damage to be adjusted.</param>
+            <returns>The adjusted damage.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.ProcessBuffs(System.Collections.Generic.List{System.String})">
+            <summary>
+            Handles all buffs in the given list.</summary>
+            <param name="activeBuffs">List of buffs to be processed.</param>
+            <returns>The amount damage is to be adjusted by.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.CheckForMatchingFlags(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Runs through the flags of the skill being cast and the targets flags looking for 
+            matches.</summary>
+            <param name="skillFlags">The list of flags from the skill being cast.</param>
+            <param name="entityFlags">The list of flags on the target entity.</param>
+            <returns>A list of flags found in both input lists.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.ProcessFlags(System.Collections.Generic.List{System.String})">
+            <summary>
+            Handles the execution of all flags in the recieved list.</summary>
+            <param name="triggeredFlags">A list of flags to be processed.</param>
+        </member>
+        <member name="M:Taken.Combat.Combat.checkForStatusEffects(Taken.Entities.Entity)">
+            <summary>
+            Checks if any Status Effects are active on the entity. Status effects are set as active Debuffs.
+            </summary>
+            <param name="entity">The entity being checked for status effects</param>
+            
+        </member>
+        <member name="M:Taken.Combat.Combat.ProcessSkillCast(Taken.Entities.Entity,Taken.Combat.Skill)">
+            <summary>
+            Handles the unpacking of a Skill object and the casting of that skill.</summary>
+            <param name="caster">The Entity casting the skill.</param>
+            <param name="skill">The skill being cast.</param>
+        </member>
+        <member name="M:Taken.Combat.Combat.PickTargeting(System.String)">
+            <summary>
+            Picks the targeting function for the skill being cast.</summary>
+            <param name="targetType">Indicates which function should be returned.</param>
+            <returns>The function to be used in the targeting phase of the cast.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.MeleeTargeting(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            A method that allows for the selection of a target that is an EntityBase (mostly used 
+            for melee).</summary>
+            <param name="minRange">The minimum allowable distance between the caster and a 
+                                       target.</param>
+            <param name="maxRange">The maximum allowable distance between the caster and a 
+                                       target.</param>
+            <param name="radius">The number of tiles around the selected target that will be hit 
+                                 by the skill.</param>
+            <returns>A list of all entities effected by the skill.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.ProjectileTargeting(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Handles the targeting of entities in a straight line.
+            </summary>
+            <param name="vertexX">The X direction of the projectiles initial path.</param>
+            <param name="vertexY">The Y direction of the projectiles initial path.</param>
+            <param name="radius">The number of tiles around hit targets that will be affected by 
+                                 the skill.</param>
+            <returns>A list of all entities effected by the skill.</returns>
+        </member>
+        <member name="M:Taken.Combat.Combat.TileTargeting(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Handles the targeting for skills that target a tile.
+            </summary>
+            <param name="minRange">The minimum allowable distance between the caster and a 
+                                       target.</param>
+            <param name="maxRange">The maximum allowable distance between the caster and a 
+                                       target.</param>
+            <param name="radius">The number of tiles around the selected target that will be hit 
+                                 by the skill.</param>
+            <returns>A list of all entities effected by the skill.</returns>
+        </member>
+        <member name="T:Taken.Dungeon.Coord">
+            <summary>
+            Represents an X, Y pair.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.Coord.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Class constructor.</summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+        </member>
+        <member name="M:Taken.Dungeon.Coord.Equals(Taken.Dungeon.Coord)">
+            <summary>
+            Determines if a coordinate refers to the same location as this one.</summary>
+            <param name="other">The location being checked.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="M:Taken.Dungeon.Coord.IsInArea(System.Collections.Generic.List{Taken.Dungeon.Coord})">
+            <summary>
+            Checks to see if this coordinate falls within a given area.</summary>
+            <param name="area">The area being checked.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.HallwayGenerator.CreateHorizontalTunnel(System.Int32,System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary>
+            Creates a horizontal tunnel between two points.</summary>
+            <param name="startX">The X coordinate of the first point.</param>
+            <param name="stopX">The X coordinate of the second point.</param>
+            <param name="y">The Y coordinate the tunnel will be made along.</param>
+            <param name="secondHall">Indicates if this is the second hall in a right angle.</param>
+            <param name="sideToCap">Indicates which end of this hall needs walls placed.</param>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.HallwayGenerator.CreateVerticalTunnel(System.Int32,System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary>
+            Creates a vertical tunnel between two points.</summary>
+            <param name="startY">The Y coordinate of the first point.</param>
+            <param name="stopY">The Y coordinate of the second point.</param>
+            <param name="x">The X coordinate the tunnel will be made along.</param>
+            <param name="secondHall">Indicates if this is the second hall in a right angle.</param>
+            <param name="sideToCap">Indicates which end of this hall needs walls placed.</param>
+        </member>
+        <member name="T:Taken.Generators.Utility.Range">
+            <summary>
+            A class that represents a range of possibility.</summary>
+        </member>
+        <member name="M:Taken.Generators.Utility.Range.#ctor(System.Double,System.Double)">
+            <summary>
+            Class constructor.</summary>
+            <param name="min">The lower bound of the range.</param>
+            <param name="max">The upper bound of the range.</param>
+        </member>
+        <member name="M:Taken.Generators.Utility.Range.Min">
+            <summary>
+            Gets the lower bound of the range.</summary>
+            <returns>The lower bound of the range.</returns>
+        </member>
+        <member name="M:Taken.Generators.Utility.Range.Max">
+            <summary>
+            Gets the upper bound of the range.</summary>
+            <returns>The upper bound of the range.</returns>
+        </member>
+        <member name="M:Taken.Generators.Utility.Range.IsInRange(System.Double)">
+            <summary>
+            Determines if a number is in this range.</summary>
+            <param name="number">The number being evaluated.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="T:Taken.UI.DebugConsole">
+            <summary>
+            The debug console allows for the entering of text commands to interact with the games code 
+            while running (spawning monsters, levelling up, etc).</summary>
+        </member>
+        <member name="T:Taken.Entities.Components.AIComponent">
+            <summary>
+            This class holds all of the flags used by the AI module to decide how a given entity 
+            should behave.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.AIComponent.#ctor(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Optional entity component that stores flags used by the AI module for NPCs capable of 
+            complex behavior.</summary>
+            <param name="social">Indicates if the entity cooperates with others. Three settings:
+                                 <value>no -- Unit does not cooperate with other entities.</value>
+                                 <value>my type -- Unit only cooperates with other units of its 
+                                                   type.</value>
+                                 <value>all -- Unit will cooperate with all other enemy types.
+                                 </value></param>
+            <param name="discriminating">Indicates whether this unit avoids damaging other units 
+                                         while attempting to damage the player. Three settings 
+                                         available.
+                                 <value>no -- Will damage other enemies to damage player</value>
+                                 <value>my type -- Will avoid damaging units of the same type as 
+                                                   itself.</value>
+                                 <value>all -- Will avoid damaging any unit type.</value></param>
+            <param name="combatRole">Indicates default combat role. Four settings available.
+                                     <value>tank</value>
+                                     <value>melee dps</value>
+                                     <value>ranged dps</value>
+                                     <value>support</value></param>
+            <param name="aiFunction">Deprecated (currently filled by basic monster, when unit AI is
+                                     ready this will be removed).</param>        
+        </member>
+        <member name="M:Taken.Entities.Components.AIComponent.DescribeMyself">
+            <summary>
+            Used by the AI Module to fetch a units social traits.</summary>
+            <returns>Returns a containing all of the units AI flags.</returns>
+        </member>
+        <member name="T:Taken.Entities.ImpedingFactor">
+            <summary>
+            Gives it's children the ability to block sight and movement. EntityBase and terrain are 
+            children of ImpedingFactor.</summary>
+        </member>
+        <member name="T:Taken.Entities.GameObjectBase">
+            <summary>
+            Every single thing in the game is derived from GameObjectBase.</summary>
+        </member>
+        <member name="F:Taken.Entities.GameObjectBase.imageSource">
+            <summary>
+            A string indicating the filepath for an objects graphical representation.</summary>
+        </member>
+        <member name="M:Taken.Entities.GameObjectBase.#ctor(System.String)">
+            <summary>
+            Class Constructor.</summary>
+            <param name="imageSource">A string indicating the filepath for an objects graphical 
+                                      representation.</param>
+        </member>
+        <member name="F:Taken.Entities.ImpedingFactor.blocksSight">
+            <summary>
+            Indicates whether or not a ImpedingFactor blocks an entity's line of sight.</summary>
+        </member>
+        <member name="F:Taken.Entities.ImpedingFactor.blocksMovement">
+            <summary>
+            Indicates whether or not a DungeonObject can be passed through.</summary>
+        </member>
+        <member name="M:Taken.Entities.ImpedingFactor.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Class Constructor</summary>
+            <param name="imageSource">A string indicating the filepath for an objects graphical 
+                                      representation.</param>
+            <param name="blocksSight">A bool indicating whethter or not a ImpedingFactor blocks an 
+                                      entity's line of sight.</param>
+            <param name="blocksMovement">A bool indicating whether or not a DungeonObject can be 
+                                         passed through.</param>
+        </member>
+        <member name="T:Taken.Dungeon.Chunk">
+            <summary>
+            A chunk represents a 3x3 portion of the dungeon map.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.tiles">
+            <summary>
+            A 2D list of ints indicating what tiletypes are stored here.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.groundObjects">
+            <summary>
+            A 2D list of ints indicating what groundObjects (if any) are stored here.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.decorations">
+            <summary>
+            A 2D list of ints indicating what evironmental decorations are stored here.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.width">
+            <summary>
+            An int indicating the horizontal number of tiles this chunk represents.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.height">
+            <summary>
+            An int indicating the vertical number of tiles this chunk represents.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Chunk.explored">
+            <summary>
+            A bool indicating if the player has seen this chunk yet.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.Chunk.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}},System.Boolean,System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}},System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}})">
+            <summary>
+            Class constructor.</summary>
+            <param name="width">An int indicating the horizontal number of tiles this chunk 
+                                represents.</param>
+            <param name="height">An int indicating the vertical number of tiles this chunk 
+                                 represents.</param>
+            <param name="tiles">A 2D list of ints that indicate the tiles in the chunk.</param>
+            <param name="explored">A boolean indicating if the  player has seen this chunk.</param>
+            <param name="groundObjects">A 2D list of ints indicating what groundObjects (if any) 
+                                        are stored here.</param>
+            <param name="decorations">A 2D list of ints indicating what evironmental decorations 
+                                      are stored here.</param>
+        </member>
+        <member name="T:Taken.Entities.Components.CorpseComponent">
+            <summary>
+            Optional entity component that stores values for an enemy who can be interacted with after 
+            it's killed. Necessary as the Fighter component is removed upon death.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.CorpseComponent.corpseImageFilePath">
+            <summary>
+            The filepath for the image of the entities corpse.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.CorpseComponent.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Class constructor.</summary>
+            <param name="corpseImageFilePath">Filepath pointing to the image for the entity's 
+                                              corpse</param>
+            <param name="drainValue">Amount of HP gained from draining corpse.</param>
+            <param name="xpValue">How much experience is gained from draining this corpse.</param>
+        </member>
+        <member name="T:Taken.Entities.Entity">
+            <summary>
+            All things in the game world that are more complex than ground is an entity base. All of 
+            the Components are optional, allowing for flexibly creation of multiple types of uniformly 
+            handled entities with one class.</summary>
+        </member>
+        <member name="T:Taken.Entities.EntityBase">
+            <summary>
+            Anything visually represented in the game (except terrain) is entity base.</summary>
+        </member>
+        <member name="F:Taken.Entities.EntityBase.mapCoordinate">
+            <summary>
+            The EntityBase's current XY coordinate in the dungeon.</summary>
+        </member>
+        <member name="F:Taken.Entities.EntityBase.chunkInfo">
+            <summary>
+            Stores entity's chunk information. In order: chunkNumber, inChunkX, inChunkY.</summary>
+        </member>
+        <member name="M:Taken.Entities.EntityBase.#ctor(System.String,System.Boolean,System.Boolean,Taken.Dungeon.Coord,System.Tuple{System.Int32,Taken.Dungeon.Coord})">
+             <summary>
+             Class constructor.</summary>
+            <param name="imageSource">The filepath to the entities art asset.</param>
+            <param name="blocksMovement">Indicates if the entity keeps other entities from moving 
+                                         into its tile. This generally will be true, unless the 
+                                         entity is gaseous.</param>
+            <param name="blocksSight">Indicates if the entity blocks sight, used for FOV.</param>
+            <param name="mapCoordinate">The coordinate that the EntityBase is located at.</param>
+            <param name="chunkInfo">A tuple that stores the number of hte chunk the entity is in, 
+                                    and its Coord within that chunk.</param>
+        </member>
+        <member name="M:Taken.Entities.EntityBase.SetInitialChunkLocation">
+            <summary>
+            Used to determine the chunk and in chunk coordinates of the entity.</summary>
+            <returns>The entities current chunk and it's coordinates within that chunk.</returns>
+        </member>
+        <member name="F:Taken.Entities.Entity.level">
+            <summary>
+            The entities current level.</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.entityID">
+            <summary>
+            An entities unique in memory identifier. Used for cross referencing between multiple
+            dispatch tables.</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.name">
+            <summary>
+            The entities name.</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.movementType">
+            <summary>
+            Indicates if the entity walks, flys, etc.</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.fighterComponent">
+            <summary>
+            Holds the entities fighterComponent (if it has one).</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.corpseComponent">
+            <summary>
+            Holds the entities corpseComponent (if it has one).</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.aiComponent">
+            <summary>
+            Holds the entities aiComponent.</summary>
+        </member>
+        <member name="F:Taken.Entities.Entity.skillComponent">
+            <summary>
+            Holds the entities skillComponent (if it has one).</summary>
+        </member>
+        <member name="M:Taken.Entities.Entity.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean,System.Boolean,Taken.Entities.Components.FighterComponent,Taken.Entities.Components.CorpseComponent,Taken.Entities.Components.AIComponent,Taken.Entities.Components.SkillComponent)">
+            <summary>
+            Class constructor.</summary>
+            <param name="imageSource">The filepath to the entities art asset.</param>
+            <param name="level">The entity's level. Defaults to zero.</param>
+            <param name="blocksSight">Indicates if the entity blocks sight, used for FOV 
+                                      algorithm.</param>
+            <param name="blocksMovement">Indicates if the entity keeps other entities from moving 
+                                         into its tile. This generally will be true, unless the 
+                                         entity is gaseous.</param>
+            <param name="name">Name of the entity. If this is left empty the entity will not 
+                               generate a mousover tooltip.</param>
+            <param name="movementType">Indicates if an entity walks or flys (and is immune to 
+                                       ground effects).</param>
+            <param name="fighterComponent">If an entity is capable of taking damage and dying it 
+                                           needs a fighter component.</param>
+            <param name="corpseComponent">If an entity can be interacted with after dying it needs
+                                          a fighter component.</param>
+            <param name="skillComponent">Required if an entity can cast skills.</param>
+            <param name="aiComponent">If an entity is capable of acting autonomously it has an AI 
+                                      component.</param>
+        </member>
+        <member name="M:Taken.Entities.Entity.assignToReferenceTable">
+            <summary>
+            Assigns an entity to the entity reference table for cross referencing entities in 
+            dispatch tables.</summary>
+        </member>
+        <member name="M:Taken.Entities.Entity.GetToolTip">
+            <summary>
+            If the entity has a name, go through all existing components and build the mouseover 
+            tooltip.</summary>
+            <returns>Returns the appropriately formated tooltip to be displayed onscreen.</returns>
+        </member>
+        <member name="M:Taken.Entities.Entity.GroundObjectChecker">
+            <summary>
+            Checks to see if the entities current tile contains a groundObject. If so, it executes 
+            its code.</summary>
+        </member>
+        <member name="T:Taken.Entities.Components.FighterComponent">
+            <summary>
+            Optional entity component that stores an entity's combat related values. Any entity that 
+            can take damage needs a FighterComponent.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.hp">
+            <summary>
+            The entity's current hit points.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.maxHP">
+            <summary>
+            The maximum number of hit points the entity can have.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.overHealArmor">
+            <summary>
+            The entity's overheal armor (spillover from heals exceeding maxHP go here and are 
+            treated as armor).</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.hasteStatus">
+            <summary>
+            Indicates if the entity should get a second turn after taking one.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.activeBuffs">
+            <summary>
+            A list of strings indicating which buffs are active on this entity.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.FighterComponent.activeDebuffs">
+            <summary>
+            A list of strings indicating which debuffs are affecting this entity.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.FighterComponent.#ctor(System.Int32,System.Action,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="maxHP">The maximum number of hit points an entity can have.</param>
+            <param name="deathFunction">Function to be executed when hp reaches zero (corpse 
+                                        explodes, etc).</param>
+            <param name="hp">The entity's current hit points. Defaults to maxHP.</param>
+            <param name="overHealArmor">Armor that is reduced to zero before the entity loses hp. 
+                                        Stores spillover from heals cause hp that exceed 
+                                        maxHP.</param>
+            <param name="isHasted">Indicates whether an entity should get a second turn.</param>
+        </member>
+        <member name="M:Taken.Entities.Components.FighterComponent.AccountForOverhealArmor(System.Int32)">
+            <summary>
+            Reduces incoming damage by the amount of the entity's overHealArmor.</summary>
+            <param name="incomingDamage">Amount of incoming damage.</param>
+            <returns>Returns the adjusted damage.</returns>
+        </member>
+        <member name="M:Taken.Entities.Components.FighterComponent.TakeDamage(System.Int32,System.Boolean)">
+            <summary>
+            Checks for overheal armor, reduces an entity's hp, and checks for and if needed 
+            handles death.</summary>
+            <param name="damage">The amount of damage being inflicted on the entity.</param>
+            <param name="skillCost">Indicates whether or not the damage is being incurred as the 
+                                    cost of a skill.</param>
+        </member>
+        <member name="M:Taken.Entities.Components.FighterComponent.Heal(System.Int32)">
+            <summary>
+            Heals the entity, and adds spillover to overhealArmor.</summary>
+            <param name="healAmount">The amount the entity is being healed by.</param>
+        </member>
+        <member name="T:Taken.GameController">
+            <summary>
+            The game controller will manage the game, and dispatch calls to other classes and functions
+            based on player input and the games current state.</summary>
+        </member>
+        <member name="F:Taken.GameController.currentMap">
+            <summary>
+            Holds the Map obj for the current floor.</summary>
+        </member>
+        <member name="M:Taken.GameController.IntializeParsers">
+            <summary>
+            Used to call the initialize function of all the XML Parsers.</summary>
+        </member>
+        <member name="M:Taken.GameController.GetAct">
+            <summary>
+            Gets the games current act.</summary>
+            <returns>this.act</returns>
+        </member>
+        <member name="F:Taken.GameController.ActiveEntities">
+            <summary>
+            A dictionary containing all active entities. Used to manage turn flow.</summary>
+        </member>
+        <member name="T:Taken.Dungeon.GroundObject">
+            <summary>
+            GroundObjects represent things that are part of the environment that go on top of a tile, 
+            (traps, environmental hazards, ect) but can be stepped upon by anything on the object 
+            layer.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.GroundObject.triggerType">
+            <summary>
+            Indicates what action causes the stored function to fire.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.GroundObject.functionToExecute">
+            <summary>
+            The name of the function to be executed.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.GroundObject.#ctor(System.String,System.String,System.Action{Taken.Entities.Entity})">
+            <summary>
+            Class constructor.</summary>
+            <param name="triggerType">Indicates what action causes the stored function to 
+                                      execute.</param>
+            <param name="function">The name of the function to be executed.</param>
+            <param name="imageSource">A bool indicating whethter or not a ImpedingFactor blocks an 
+                                      entity's line of sight.</param>
+        </member>
+        <member name="T:Taken.Generators.MapGenerator.MapGenerator">
+            <summary>
+            A collection of all the functions that combine to create a dungeon layout.</summary>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.GenerateNewFloor(System.Int32,System.Boolean)">
+            <summary>
+            Generates a new dungeon.</summary>
+            <param name="act">The act of the game the floor being made belongs to.</param>
+            <returns>Returns a Map object containing the new dungeon and its relevant data.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.ResetMapGenerator">
+            <summary>
+            Resets the class level variables in preperation for map generation.</summary>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.MakeMap(System.Boolean)">
+            <summary>
+            Generates a new map based on the data in MapGenerator.XML.</summary>
+            <returns>The map object contianing the new dungeon.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.GenerateNullDungeon">
+            <summary>
+            Creates the 2D array to be used for the dungeonLayout.</summary>
+            <returns>Returns an empty 2D int array.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.RoomBuilder(System.Collections.Generic.List{Taken.Dungeon.Room},System.Boolean)">
+            <summary>
+            Creates and furnishes a randomly generated room.</summary>
+            <returns>Returns a finished room.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.GetRandomFloat(System.Single,System.Single)">
+            <summary>
+            Generates a random floating point number from a given range. Numbers have a linear 
+            distribution.</summary>
+            <param name="minimum">The minimum value for the generated float.</param>
+            <param name="maximum">The maximum value of the float.</param>
+            <returns>A float between >minimum and maximum.</returns>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.RoomStyler(Taken.Dungeon.Room)">
+            <summary>
+            Selects a style for a room.
+            </summary>
+            <param name="room">The room to be styled.</param>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.RoomTiler(Taken.Dungeon.Room)">
+            <summary>
+            Updates all tiles in a room to match it's style.</summary>
+            <param name="room">The room to be retiled.</param>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.RoomFurnisher(Taken.Dungeon.Room)">
+            <summary>
+            Places appropriate furniture into a room based on its style.</summary>
+            <param name="room">The room to be furnished.</param>
+        </member>
+        <member name="M:Taken.Generators.MapGenerator.MapGenerator.CreateChunkArray">
+            <summary>
+            Compacts the (chunkWidth * n) * (chunkHeight * n) dungeonLayout into an n*n array and 
+            creates the associated data structures.</summary>
+            <returns>Returns a tuple containing 2D list populated by ints, and a dictionary 
+                     containing KVPs of ints from the 2D list and Chunk objects.</returns>
+        </member>
+        <member name="T:Taken.Dungeon.Tile">
+            <summary>
+            A class that represents a tile.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.Tile.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Class constructor.</summary>
+            <param name="imageSource">The filepath to the tiles graphical representation.</param>
+            <param name="blocksSight">Indicates if the tile blocks sight.</param>
+            <param name="blocksMovement">Indicates if the tile can be occupied.</param>
+        </member>
+        <member name="T:Taken.XMLParsers.MapGenParser">
+            <summary>
+            MapGenParser reads the XML file containing the values for the current act and provides the
+            values to the MapGenerator.</summary>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.Intialize(System.Int32)">
+            <summary>
+            Loads the XmlDocument from the filepath into doc and validates it.</summary>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetMapDimensions">
+            <summary>
+            Retrieves the min-max map dimensions from the XML file.</summary>
+            <returns>A tuple containing the domain and range of the maps possible 
+                    dimensions.</returns>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetRangeOfNumberOfRooms">
+            <summary>
+            Gets the range for the number of rooms.</summary>
+            <returns>Returns the possible range of the number of rooms.</returns>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetRoomSizeRange">
+            <summary>
+            Gets the range for room sizes.</summary>
+            <returns>A tuple containing the domain and range of a rooms possible 
+                     dimensions.</returns>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetStylesDict">
+            <summary>
+            Gets a dictionary of room styles and their spawn chance.</summary>
+            <returns>Style Dictionary {Range; string}</returns>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetTilerDict(System.String)">
+            <summary>
+            Returns a dict of the given roomStyles possible tile types.</summary>
+            <param name="roomStyle">The style of the room whose tiles we are getting.</param>
+            <returns>The dictionary of information about the contained tiles.</returns>
+        </member>
+        <member name="M:Taken.XMLParsers.MapGenParser.GetTileObjectDict">
+            <summary>
+            Gets a dictionary of tiles.</summary>
+            <returns>A dictionary containing every tile object in the act {mapInt, Tile}</returns>
+        </member>
+        <member name="T:Taken.XMLParsers.MobFactoryParser">
+            <summary>
+            MobFactoryParser reads the XML file containing the values for the mobs in the current act 
+            and provides their values to the MobFactory.</summary>
+        </member>
+        <member name="M:Taken.XMLParsers.MobFactoryParser.Intialize">
+            <summary>
+            Loads the MobValues XML file into doc using filePath.</summary>
+        </member>
+        <member name="T:Taken.GlobalData">
+            <summary>
+            Global Data is where we store save specific constants. At some point these will be moved 
+            into a game default values XML and loaded in on a per game basis to allow modification of 
+            the games initial state.</summary>
+        </member>
+        <member name="F:Taken.GlobalData.chunkHeight">
+            <summary>
+            Controls the the height (in tiles) of a chunk.</summary>
+        </member>
+        <member name="F:Taken.GlobalData.chunkWidth">
+            <summary>
+            Controls the width (in tiles) of a chunk.</summary>
+        </member>
+        <member name="F:Taken.GlobalData.entityReferenceTable">
+            <summary>
+            This dictionary stores pairs of {entityID, entity}. This allows entityID to be used to 
+            identify the specific instance of an entity.</summary>
+        </member>
+        <member name="F:Taken.GlobalData.preTurnEffects">
+            <summary>
+            Dictionary for managing the processing of status effects that happen before an entity 
+            takes a turn. Values are stored as pairs of 
+            (entityIDs; List[statusEffectFunction, numberOfTurnsActive])</summary>
+        </member>
+        <member name="F:Taken.GlobalData.postTurnEffects">
+            <summary>
+            Dictionary for managing the processing of status effects that after before an entity 
+            takes a turn. Values are stored as pairs of 
+            (entityIDs; List[statusEffectFunction, numberOfTurnsActive])</summary>
+        </member>
+        <member name="F:Taken.GlobalData.groundObjectDict">
+            <summary>
+            A dictionary that stores one active copy of each groundObjectPossible in the current 
+            act. This is used to see ints in the Map object, and pass the images to 
+            renderer.</summary>
+        </member>
+        <member name="F:Taken.GlobalData.viewPort">
+            <summary>
+            Integer indicating the number of tiles visible on a screen. Currently the int 
+            represents both width and height.</summary>
+        </member>
+        <member name="T:Taken.Entities.Components.HighSkillComponent">
+            <summary>
+            High actor skill component. High actors are bound to a rule that when they use a skill in a
+            category, the whole category becomes unavailable for that skills cooldown.</summary>
+        </member>
+        <member name="T:Taken.Entities.Components.SkillComponent">
+            <summary>
+            Optional entity component for entities that can use cast skills.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.SkillComponent.actorSkillType">
+            <summary>
+            Tells the mob factory which skill component constructor to use. Can be set to "high"
+            or "low".</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.SkillComponent.coolDowns">
+            <summary>
+            A list of ints indicating if a category is on cooldown and for how long.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.SkillComponent.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="skillType">Indicates which version of the skill component the entity has. 
+                                    Values are high, or low.</param>
+        </member>
+        <member name="F:Taken.Entities.Components.HighSkillComponent.lockedSkills">
+            <summary>
+            A dictionary of categoryName and dict of skills in category pairs. Stores all skills an
+            entity can use, but hasn't unlocked yet.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.HighSkillComponent.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Class constructor.</summary>
+            <param name="lockedSkills">A list of skill names that the entity can use but has not 
+                                       unlocked yet.</param>
+            <param name="corporealSkills">A list of skill objects belonging to the Corporeal 
+                                          category.</param>
+            <param name="alchemicalSkills">A list of skill objects belonging to the Alchemical 
+                                           category.</param>
+            <param name="relationalSkills">A list of skill objects belonging to the Relational 
+                                           category.</param>
+            <param name="spatialSkills">A list of objects for known Spatial skills.</param>
+            <param name="metaphysicalSkills">A list of objects for known Metaphysical 
+                                             skills.</param>
+        </member>
+        <member name="M:Taken.Entities.Components.HighSkillComponent.CheckCoolDown(System.Int32)">
+            <summary>
+            Checks if a category is on cooldown or not.</summary>
+            <param name="category">Index of the category being checked</param>
+            <returns>Returns true if the category is available, otherwise returns false.</returns>
+        </member>
+        <member name="T:Taken.Entities.Components.LowSkillComponent">
+            <summary>
+            LowActors are not bound to the category cooldown rule.</summary>
+        </member>
+        <member name="F:Taken.Entities.Components.LowSkillComponent.availableSkills">
+            <summary>
+            Holds the skill objects for all skills an entity can use.</summary>
+        </member>
+        <member name="M:Taken.Entities.Components.LowSkillComponent.#ctor(System.Collections.Generic.List{Taken.Combat.Skill})">
+            <summary>
+            Class constructor.</summary>
+            <param name="availableSkills">A list of all skills the entity can use.</param>
+        </member>
+        <member name="T:Taken.Dungeon.Map">
+            <summary>
+            A map object stores all of the relevant information about the player's current dungeon 
+            floor.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Map.chunkArray">
+            <summary>
+            A two dimensional list of sequentially numbered integers representing the chunks 
+            holding the dungeon layout.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Map.act">
+            <summary>
+            The act this map was generated for. Useful for spawning the appropriate enemies should 
+            the player backtrack between acts.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Map.firstRoom">
+            <summary>
+            The first room that was generated on this floor. Used for the intial placement of the 
+            player on the floor, and the placement of the stairs to the previous level.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Map.lastRoom">
+            <summary>
+            The last room generated in this map. Used to place the stairs downward to the next 
+            floor, and if necessary the boss.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Map.chunkDictionary">
+            <summary>
+            A dictionary of the chunk objects used to store the dungeon layout.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.Map.#ctor(System.Int32,Taken.Dungeon.Room,Taken.Dungeon.Room,System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}},System.Collections.Generic.Dictionary{System.Int32,Taken.Dungeon.Chunk})">
+            <summary>
+            Class constructor.</summary>
+            <param name="chunkArray">A two-dimensional list of the ints that serve as lookup keys 
+                                     for the chunks that store the map.</param>
+            <param name="act">The act of the game this map was generated in.</param>
+            <param name="firstRoom">The first room generated in this map. Used for the players 
+                                    initial X/Y placement on this floor.</param>
+            <param name="lastRoom">The last room generated in this map. Used to place the stairs 
+                                   down to a new floor.</param>
+            <param name="chunkDictionary">A dictionary that stores the chunks that make up the map. 
+                                          Keys are the ints found in the map</param>
+        </member>
+        <member name="T:Taken.Entities.Player">
+            <summary>
+            A derived class of entity that represents the player character.</summary>
+        </member>
+        <member name="M:Taken.Entities.Player.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Class constructor.</summary>
+            <param name="imageSource">Filepath for the player's image.</param>
+            <param name="level">The players current level.</param>
+            <param name="name">Left empty so the player does not generate a tooltip</param>
+            <param name="xp">The amount of experience points the player starts with.</param>
+            <param name="levelUpThreshold">The number of experience points needed to reach the next 
+                                           level.</param>
+        </member>
+        <member name="M:Taken.Entities.Player.LevelUp">
+            <summary>
+            Handles the calling of functions when the player levels up.</summary>
+        </member>
+        <member name="M:Taken.Entities.Player.UpdateLevelUpThreshold">
+            <summary>
+            Updates the amount of experience the player needs to level up again.</summary>
+        </member>
+        <member name="T:Taken.Dungeon.Room">
+            <summary>
+            A room is a convenience class used in the MapGenerator.</summary>
+        </member>
+        <member name="F:Taken.Dungeon.Room.style">
+            <summary>
+            The room's style, that will be used to pick tiles.</summary>
+        </member>
+        <member name="M:Taken.Dungeon.Room.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Class constructor.</summary>
+            <param name="x">The X coordinate of the rooms top-left corner.</param>
+            <param name="y">The Y coordinate of the rooms top-left corner.</param>
+            <param name="width">The rooms width.</param>
+            <param name="height">The rooms height.</param>
+        </member>
+        <member name="M:Taken.Dungeon.Room.Center">
+            <summary>
+            Find the coordinates of this room's Center.</summary>
+            <returns>A Coord of the rooms Center.</returns>
+        </member>
+        <member name="M:Taken.Dungeon.Room.Intersect(Taken.Dungeon.Room)">
+            <summary>
+            Determines if this room intersects with another.</summary>
+            <param name="other">The room you are testing for intersection with.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="T:Taken.Combat.Skill">
+            <summary>
+            A skill object holds all of the data and functions related to an ability. The skill 
+            objects allow the codebase to abstractly interpret abilities allowing for more varied user
+            created skills.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.category">
+            <summary>
+            An int used to tell the skillwrapper what index in cooldowns to set.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.targetingType">
+            <summary>
+            Tells the skill wrapper which targeting function should be used. Can be melee, tile, 
+            projectile.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.minimumRange">
+            <summary>
+            Indicates the minimum distance from the caster that can be targeted.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.maximumRange">
+            <summary>
+            Indicates the maximum distance from the caster that can be targeted.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.radius">
+            <summary>
+            Tells the skill wrapper the number of tiles in all directions from the target point
+            that are affected by the casted skill.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.hpCost">
+            <summary>
+            A float indicating what percentage of maxHP this skill costs the caster.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.damage">
+            <summary>
+            A float indicating the percentage of the caster's maxHP this skill does in 
+            damage.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.coolDown">
+            <summary>
+            The number of turns this skill (or category) is unavailable for after use.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.flags">
+            <summary>
+            A list of strings that will be checked against a target entities flags to check for 
+            additional interactions. Example flags: "melee", "fire".</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.combatRoles">
+            <summary>
+            A series of strings that are used by the AI Module when deciding what new role an 
+            entity should take. Listed in order of the skills effectiveness in a certain role from 
+            most effective role to least effective role.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.function">
+            <summary>
+            A store for the function of the actual code.</summary>
+        </member>
+        <member name="F:Taken.Combat.Skill.statusEffect">
+            <summary>
+            Stores the status effect the skill inflicts (if it has one).</summary>
+        </member>
+        <member name="M:Taken.Combat.Skill.#ctor(System.String,System.Int32,System.String,System.Single,System.Single,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Func{System.Int32,System.Int32,System.Int32,System.Collections.Generic.List{Taken.Entities.EntityBase}},System.Int32,System.Int32,System.Int32,System.Int32,Taken.Combat.StatusEffect)">
+            <summary>
+            Class constructor.</summary>
+            <param name="name">The name of the skill.</param>
+            <param name="category">An integer that points to what category a skill belongs to 
+                                   (useful for setting coolodowns) on HighActors.</param>
+            <param name="targetingType">A string that designates which targetting function should 
+                                        be used.</param>
+            <param name="hpCost">A float indicating what percentage of maxHP this skill costs the 
+                                 caster.</param>
+            <param name="damage">A float indicating what percentage of the caster's maxHP this 
+                                 skill does in damage.</param>
+            <param name="flags">Flags that can trigger unique interaction with mobs.</param>
+            <param name="combatRoles">A list of strings used by the AI Module when deciding what 
+                                      combat role an entity should take. Ordered in the skills 
+                                      effectiveness in a each role from most effective to least 
+                                      role.</param>
+            <param name="function">A list of strings that will be checked against a target entities
+                                   flags to check for additional interactions. Example flags: 
+                                   "melee", "fire".</param>
+            <param name="toolTipBody">The main body of a mouseover tooltip's text. Data such as 
+                                      damage dealt will be inserted by GetToolTip()</param>
+            <param name="minRange">Tells the skill wrapper the minimum distance from the caster
+                                       that can be targeted.</param>
+            <param name="maxRange">Tells the skill wrapper the maximum distance from the caster
+                                       that can be targeted.</param>
+            <param name="radius">Tells the skill wrapper the number of tiles in all directions from
+                                 the target point that are affected by the casted skill.</param>
+            <param name="coolDown">The number of turns this skill (or category) is unavailable 
+                                   after use.</param>
+            <param name="statusEffect">The status effect (if present) the skill inflicts.</param>
+        </member>
+        <member name="M:Taken.Combat.Skill.GetToolTip">
+            <summary>
+            Composites the mouseover tooltip from the data available in the skill.</summary>
+            <returns>The finished tooltip.</returns>
+        </member>
+        <member name="T:Taken.Combat.StatusEffect">
+            <summary>
+            A status effect is a debuff inflicted by a skill. This class allows for abstract 
+            processing of status effects allowing modders greater flexibility in the types of effects 
+            they implement.</summary>
+        </member>
+        <member name="F:Taken.Combat.StatusEffect.phaseToProcess">
+            <summary>
+            Indicates what phase of turn taking or combat the effect happens in. Values are 
+            "preturn", "postturn", "buff", "debuff".</summary>
+        </member>
+        <member name="F:Taken.Combat.StatusEffect.effectFunction">
+            <summary>
+            A store for the function to be called when the effect is processed.</summary>
+        </member>
+        <member name="F:Taken.Combat.StatusEffect.effectDuration">
+            <summary>
+            Indicates how many turns the effect should occur.</summary>
+        </member>
+        <member name="M:Taken.Combat.StatusEffect.#ctor(System.String,System.Object,System.Int32)">
+            <summary>
+            Class constructor.</summary>
+            <param name="phaseToProcess">Indicates what phase of turn taking or combat the effect 
+                                         happens in. Values are "preturn", "postturn", "buff", 
+                                         "debuff".</param>
+            <param name="effectFunction">The function to be called when the effect is 
+                                         processed.</param>
+            <param name="effectDuration">The int to be stored in effectDuration.</param>
+        </member>
+    </members>
+</doc>

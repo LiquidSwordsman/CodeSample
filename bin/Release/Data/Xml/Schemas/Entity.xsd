@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="XMLSchema1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            version="1.0">
+  <xsd:element name="entities">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="entity" minOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="spawnValues" minOccurs="1" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="clusterValue"   type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="minPlayerLevel" type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="maxPlayerLevel" type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="minSpawnChance" type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="maxSpawnChance" type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="minSpawnLevel"  type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="maxSpawnLevel"  type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="maxHPPerLevel"  type="xsd:int" minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="xpPerLevel"     type="xsd:int" minOccurs="0" maxOccurs="1" />
+                  </xsd:sequence>
+                </xsd:complexType>                
+              </xsd:element>
+              <xsd:element name="entityBaseValues" minOccurs="1" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="entityBaseType"    type="xsd:string"  minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="name"              type="xsd:string"  minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="baseLevel"         type="xsd:int"     minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="livingImageSource" type="xsd:string"  minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="movementType"      type="xsd:string"  minOccurs="0" maxOccurs="1" default="ground" />
+                    <xsd:element name="blocksSight"       type="xsd:boolean" minOccurs="0" maxOccurs="1" default="false" />
+                    <xsd:element name="blocksMovement"    type="xsd:boolean" minOccurs="1" maxOccurs="1" default="true" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="fighterComponent" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="hp"            type="xsd:int"     minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="baseMaxHP"     type="xsd:int"     minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="overhealArmor" type="xsd:int"     minOccurs="0" maxOccurs="1" default="0" />
+                    <xsd:element name="isHasted"      type="xsd:boolean" minOccurs="0" maxOccurs="1" default="false"/>
+                    <xsd:element name="deathFunction" type="xsd:string"  minOccurs="1" maxOccurs="1" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="corpseComponent" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="corpseImageSource" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="drainValue"        type="xsd:int"    minOccurs="0" maxOccurs="1" />
+                    <xsd:element name="xpValue"           type="xsd:int"    minOccurs="0" maxOccurs="1" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="aiComponent" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="social"         type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="discriminating" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="combatRole"     type="xsd:string" minOccurs="1" maxOccurs="1" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="skillComponent" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="actorType"   type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="knownSkills" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+</xsd:schema>
