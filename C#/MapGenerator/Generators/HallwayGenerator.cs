@@ -1,12 +1,8 @@
-﻿using System;
+﻿using CodeSample.Dungeon;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeSample.Dungeon;
-using CodeSample.Generators.Utility;
 
-namespace CodeSample.Generators.MapGenerator
+namespace CodeSample.Generators
 {
     class HallwayGenerator
     {

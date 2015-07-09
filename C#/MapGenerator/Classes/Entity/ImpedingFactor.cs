@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeSample.Entities
+﻿namespace CodeSample.Entities
 {
     /// <summary>
     /// Gives it's children the ability to block sight and movement. EntityBase and terrain are 

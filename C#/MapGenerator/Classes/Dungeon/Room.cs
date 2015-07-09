@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeSample.Dungeon
+﻿namespace CodeSample.Dungeon
 {
     /// <summary>
     /// A room is a convenience class used in the MapGenerator.</summary>

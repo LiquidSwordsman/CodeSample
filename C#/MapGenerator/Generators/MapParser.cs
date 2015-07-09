@@ -1,13 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using CodeSample.Generators.Utility;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using CodeSample.Generators.Utility;
 
-namespace CodeSample.Data
+namespace CodeSample.Generators
 {
     class MapParser
     {

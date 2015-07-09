@@ -1,16 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using CodeSample;
-using CodeSample.Dungeon;
+﻿using CodeSample.Dungeon;
 using CodeSample.Generators.Utility;
 using CodeSample.XMLParsers;
-using CodeSample.Generators.MapGenerator;
-using CodeSample.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace CodeSample.Generators.MapGenerator
+namespace CodeSample.Generators
 {
     /// <summary>
     /// A collection of all the functions that combine to create a dungeon layout.</summary>

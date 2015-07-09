@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeSample.Generators.Utility
+﻿namespace CodeSample.Generators.Utility
 {
     /// <summary>
     /// A class that represents a range of possibility.</summary>

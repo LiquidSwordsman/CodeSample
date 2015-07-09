@@ -79,7 +79,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Generators\MapGenerator\MapParser.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="Classes\Dungeon\Chunk.cs" />
     <Compile Include="Classes\Dungeon\Coord.cs" />
@@ -87,9 +86,10 @@
     <Compile Include="Classes\Dungeon\Room.cs" />
     <Compile Include="Classes\Dungeon\Tile.cs" />
     <Compile Include="Classes\Entity\GameObjectBase.cs" />
-    <Compile Include="Generators\MapGenerator\HallwayGenerator.cs" />
-    <Compile Include="Generators\MapGenerator\MapGenerator.cs" />
     <Compile Include="Classes\Utility\Range.cs" />
+    <Compile Include="Generators\HallwayGenerator.cs" />
+    <Compile Include="Generators\MapGenerator.cs" />
+    <Compile Include="Generators\MapParser.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="Classes\Entity\ImpedingFactor.cs" />
     <Compile Include="Program.cs" />

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Diagnostics;
+﻿using CodeSample.Generators;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeSample.Generators.MapGenerator;
-using CodeSample.Dungeon;
 
 namespace CodeSample
 {

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeSample.Dungeon;
-
-namespace CodeSample
+﻿namespace CodeSample
 {
     /// <summary>
     /// Global Data is where we store save specific constants. At some point these will be moved 
