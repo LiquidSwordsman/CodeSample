@@ -4,7 +4,7 @@ namespace CodeSample.Dungeon
 {
     /// <summary>
     /// Represents an X, Y pair.</summary>
-    public class Coord
+    public struct Coord
     {
         public int x;
         public int y;
@@ -40,6 +40,10 @@ namespace CodeSample.Dungeon
                 if ((coordinate.x == x) && (coordinate.y == y))
                     return true;
             return false;
+        }
+
+        public override string ToString() {
+            return "(" + x.ToString() + ", " + y.ToString() + ")";
         }
     }
 }

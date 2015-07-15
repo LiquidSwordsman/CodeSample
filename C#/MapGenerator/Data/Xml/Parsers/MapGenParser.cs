@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using CodeSample.Dungeon;
-using CodeSample.Generators.Utility;
+using CodeSample.Utility;
 
 namespace CodeSample.XMLParsers
 {

@@ -1,13 +1,10 @@
 {
     "empty": {
-        "min_spawn_chance": 0,
-        "max_spawn_chance": 100
-        },
+        "spawn_chance": [0, 100],
         "tile_types": {
             "empty": {
-                "min_spawn_chance": 0,
-                "max_spawn_chance": 100,
-                "name":  "empty"
+                "spawn_chance": [0, 100],
+                "name": "empty"
             }
         },
         "decorations": { }
