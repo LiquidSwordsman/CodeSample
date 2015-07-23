@@ -35,8 +35,10 @@ Right Angles
 
 public static class Class1 {
     private static Random RNG = new Random();
- 
-    public static void MakeHallway(Room oldRoom, Room newRoom, Range possibleHallwayWidths) {
+    private static List<List<int>> DungeonLayout;
+
+    public static void MakeHallway(Room oldRoom, Room newRoom, Range possibleHallwayWidths, List<List<int>> dungeonLayout) {
+        DungeonLayout = dungeonLayout;
         string straightHallwayDirection = IsStraightHallwayOnlyPossible(oldRoom, newRoom);
         int hallwayWidth = RNG.Next((int)possibleHallwayWidths.min, (int)possibleHallwayWidths.max + 1);
 
@@ -141,8 +143,23 @@ if(secondVertex != 0, 0)
     private static void MakeHorizontalHallway(Vertex relativePositions, Room oldRoom, Room newRoom, int hallwayWidth, bool onlyHall=false) { 
         Coord startingCoord;
         Coord stoppingCoord;
+        int northAmplitude = 0;
+        int southAmplitude = 0;
         int hallwayAmplitude = (hallwayWidth - 1) / 2;
-        bool amplitudeRemainder = (hallwayWidth % 2 == 0);
+        bool amplitudeRemainder;
+
+        if (hallwayWidth > 1){
+            northAmplitude += hallwayAmplitude;
+            southAmplitude += hallwayAmplitude;
+
+            amplitudeRemainder = (hallwayWidth % 2 == 0);
+            if (amplitudeRemainder){
+                if (RNG.Next(0, 2) == 0)
+                    northAmplitude += 1;
+                else
+                    southAmplitude +=1;
+            }
+        }
         
         if (onlyHall) {
             startingCoord = GetVerticallyConstrainedCoord(relativePositions, oldRoom, newRoom);
@@ -157,11 +174,61 @@ if(secondVertex != 0, 0)
             stoppingCoord.x += hallwayAmplitude;
         }
 
-
         for (int x = startingCoord.x; x <= stoppingCoord.x; x += 1 * relativePositions.x) {
-
+            for (int y = startingCoord.y - northAmplitude; y <= startingCoord.y + southAmplitude; y++) {
+                DungeonLayout[x][y] = 1;
+            }
+            if ((DungeonLayout[x][startingCoord.y + northAmplitude + 1] != 0) && (DungeonLayout[x][startingCoord.y + northAmplitude + 1] != 3))
+                DungeonLayout[x][startingCoord.y + northAmplitude + 1] = 0;
+            if ((DungeonLayout[x][startingCoord.y - southAmplitude - 1] != 0) && (DungeonLayout[x][startingCoord.y - southAmplitude - 1] != 3))
+                DungeonLayout[x][startingCoord.y - southAmplitude - 1] = 0;   
         }
     }
-    private static void MakeVerticalHallway(Vertex direction, Room oldRoom, Room newRoom, int hallwayWidth, bool onlyHall = false) { }
+
+    private static void MakeVerticalHallway(Vertex relativePositions, Room oldRoom, Room newRoom, int hallwayWidth, bool onlyHall=false) { 
+        Coord startingCoord;
+        Coord stoppingCoord;
+        int eastAmplitude = 0;
+        int westAmplitude = 0;
+        int hallwayAmplitude = (hallwayWidth - 1) / 2;
+        bool amplitudeRemainder;
+
+        if (hallwayWidth > 1){
+            eastAmplitude += hallwayAmplitude;
+            westAmplitude += hallwayAmplitude;
+
+            amplitudeRemainder = (hallwayWidth % 2 == 0);
+            if (amplitudeRemainder){
+                if (RNG.Next(0, 2) == 0)
+                    eastAmplitude += 1;
+                else
+                    westAmplitude +=1;
+            }
+        }
+        
+        if (onlyHall) {
+            startingCoord = GetHorizontallyConstrainedCoord(relativePositions, oldRoom, newRoom);
+            if (relativePositions.y < 1)
+                stoppingCoord = new Coord(oldRoom.topLeft.y, startingCoord.x);
+            else
+                stoppingCoord = new Coord(oldRoom.bottomRight.y, startingCoord.x);
+        }
+        else {
+            startingCoord = GetVerticalCoord(relativePositions, newRoom);
+            stoppingCoord = GetVerticalCoord(relativePositions, oldRoom);
+            stoppingCoord.y += hallwayAmplitude;
+        }
+
+        for (int y = startingCoord.y; y <= stoppingCoord.y; y += 1 * relativePositions.y) {
+            for (int x = startingCoord.x - westAmplitude; x <= startingCoord.x + eastAmplitude; x++) {
+                DungeonLayout[x][y] = 1;
+            }
+            if ((DungeonLayout[startingCoord.x + eastAmplitude + 1][y] != 0) && (DungeonLayout[startingCoord.x + eastAmplitude + 1][y] != 3))
+                DungeonLayout[startingCoord.x + eastAmplitude + 1][y] = 0;
+            if ((DungeonLayout[startingCoord.x - westAmplitude - 1][y] != 0) && (DungeonLayout[startingCoord.x - westAmplitude - 1][y] != 3))
+                DungeonLayout[startingCoord.x - westAmplitude - 1][y] = 0;
+        }
+    }
+
     private static void MakeRightAngleHallway(Vertex initialDirection, Vertex secondDirection, Room oldRoom, Room newRoom) { }
 }

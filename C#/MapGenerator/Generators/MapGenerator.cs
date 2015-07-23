@@ -167,7 +167,7 @@ namespace CodeSample.Generators {
                 DungeonLayout[x][bottomRight.y] = 0;
             }
 
-            // Place the east and west walls of the room.
+            // Place the eastAmplitude and west walls of the room.
             for (int y = topLeft.y; y <= Math.Abs(bottomRight.y); y++) {
                 DungeonLayout[topLeft.x][y] = 0;
                 DungeonLayout[bottomRight.x][y] = 0;
