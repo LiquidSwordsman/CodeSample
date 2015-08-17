@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="XMLSchema1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   version="1.0">
+  <xsd:element name="statusEffects">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="phaseToProcess" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="function"       type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="duration"       type="xsd:int"    minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

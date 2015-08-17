@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   version="1.0">
+  <!--xmlns:xsd="http://www.w3.org/2001/XMLSchema-datatypes"-->
+
+  <xsd:element name="mapGenValues">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="dungeonValues" minOccurs="1" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="minMapWidth"      type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="maxMapWidth"      type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="minMapHeight"     type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="maxMapHeight"     type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="minRoomWidth"     type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="maxRoomWidth"     type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="minRoomHeight"    type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="maxRoomHeight"    type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="minNumberOfRooms" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="maxNumberOfRooms" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="minInitialMobs"   type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="maxInitialMobs"   type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="roomStyles"  minOccurs="1" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="style" minOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="minChance" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="maxChance" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="tileTypes">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="tileType" minOccurs="1">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="minChance" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                                <xsd:element name="maxChance" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                              </xsd:sequence>
+                              <xsd:attribute name="mapInt" type="xsd:int" use="required"/>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="decorations">
+                      <xsd:complexType>
+                        <!--As decorations are introduced to the map generator and XML, build this out.-->
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="name" type="xsd:string" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="tileTypes" minOccurs="1" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="tile" minOccurs="1" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="filePath"        type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="blocksSight"     type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="blocksMovement"  type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+                  </xsd:sequence>
+                  <xsd:attribute name="mapInt" type="xsd:int" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

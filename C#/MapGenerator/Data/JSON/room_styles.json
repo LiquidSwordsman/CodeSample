@@ -1,0 +1,12 @@
+{
+    "empty": {
+        "spawn_chance": [0, 100],
+        "tile_types": {
+            "empty": {
+                "spawn_chance": [0, 100],
+                "name": "empty"
+            }
+        },
+        "decorations": { }
+    }
+}
