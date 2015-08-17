@@ -1,7 +1,6 @@
-﻿using System.IO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using Algorithms;
 
 class MergeSort {
     // Domain
@@ -58,16 +57,20 @@ class MergeSort {
 
     public static void StartMergeSort() {
         var data = new List<int>() { 6, 2, 4, 3, 1, 5, 9, 11, 8, 7 };
-        Console.WriteLine("The randomized list is: " + PrintList(data));
+        Console.WriteLine("The randomized list is: " + Utilities.PrintList(data));
         ProcessMergeSort(data, 0, data.Count - 1);
-        Console.WriteLine("The ordered list is: " + PrintList(data));
+        Console.WriteLine("The ordered list is: " + Utilities.PrintList(data));
         Console.ReadKey();
     }
 
-    public static string PrintList(List<int> data) {
-        string output = "[";
-        foreach (int num in data)
-            output += num.ToString() + ", ";
-        return output + "]";
+    public static void StartMergeSort(List<int> data, bool output=false) {
+        if (output) {
+            Console.WriteLine("The randomized list is: " + Utilities.PrintList(data));
+        }
+        ProcessMergeSort(data, 0, data.Count - 1);
+        if (output) {
+            Console.WriteLine("The ordered list is: " + Utilities.PrintList(data));
+            Console.ReadKey();
+        }
     }
 }
